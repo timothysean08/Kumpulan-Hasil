@@ -1,0 +1,51 @@
+library(readxl)
+tradi <- read_xlsx('/Users/timothysean/Documents/FINAL DATA/REGRESI FAMA FRENCH/Tradisional.xlsx')
+cluster <- read_xlsx('/Users/timothysean/Documents/FINAL DATA/REGRESI FAMA FRENCH/Cluster.xlsx')
+
+
+################MRP#################
+MRP <- read_xlsx('MRP.xlsx')
+# Uji normalitas menggunakan Shapiro-Wilk test
+mrp_tradi <- shapiro.test(MRP$Tradi)
+mrp_cluster <- shapiro.test(MRP$Cluster)
+
+# Menampilkan hasil uji Shapiro
+print(mrp_tradi)
+print(mrp_cluster)
+# Menghitung korelasi Spearman
+MRP_test <- cor.test(MRP$Tradi, MRP$Cluster, method = "spearman")
+
+# Menampilkan hasil uji Spearman
+print(MRP_test)
+
+
+
+################SMB#################
+SMB <- read_xlsx('SMB.xlsx')
+# Uji normalitas menggunakan Shapiro-Wilk test
+smb_tradi <- shapiro.test(SMB$Tradi)
+smb_cluster <- shapiro.test(SMB$Cluster)
+
+# Menampilkan hasil uji Shapiro
+print(smb_tradi)
+print(smb_cluster)
+# Menghitung korelasi Spearman
+smb_test <- cor.test(SMB$Tradi, SMB$Cluster, method = "spearman")
+
+# Menampilkan hasil uji Spearman
+print(smb_test)
+
+################HML#################
+HML <- read_xlsx('HML.xlsx')
+# Uji normalitas menggunakan Shapiro-Wilk test
+HML_tradi <- shapiro.test(HML$Tradi)
+HML_cluster <- shapiro.test(HML$Cluster)
+
+# Menampilkan hasil uji Shapiro
+print(HML_tradi)
+print(HML_cluster)
+# Menghitung korelasi Spearman
+HML_test <- cor.test(HML$Tradi, HML$Cluster, method = "spearman")
+
+# Menampilkan hasil uji Spearman
+print(HML_test)
